@@ -1,3 +1,16 @@
+# ISE garbage
+*.gise
+*.prj
+*.wdb
+*.html
+src/_xmsgs
+src/isim
+src/iseconfig
+*.xmsgs
+*.log
+serializer.v
+*.ini
+
 # Prerequisites
 *.d
 
