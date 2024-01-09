@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/kevin/Downloads/Rapeme/TopBitch_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="env" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+            <top_module name="topbitch" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="24" />
+   <wvobject fp_name="/topbitch/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/cs_b" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cs_b</obj_property>
+      <obj_property name="ObjectShortName">cs_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/sclk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sclk</obj_property>
+      <obj_property name="ObjectShortName">sclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/mosi" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mosi</obj_property>
+      <obj_property name="ObjectShortName">mosi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/incoming_packet" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">incoming_packet[15:0]</obj_property>
+      <obj_property name="ObjectShortName">incoming_packet[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/test_vector_result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">test_vector_result[15:0]</obj_property>
+      <obj_property name="ObjectShortName">test_vector_result[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/test_vector_valid" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">test_vector_valid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">test_vector_valid[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/test_vector_number" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">test_vector_number[63:0]</obj_property>
+      <obj_property name="ObjectShortName">test_vector_number[63:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/s_add" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_add[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_add[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/s_mul" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_mul[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_mul[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/r_data1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_data1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_data1[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/r_data2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_data2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_data2[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/pkt_control/r_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">r_state</obj_property>
+      <obj_property name="ObjectShortName">r_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/s_add_overflow" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_add_overflow</obj_property>
+      <obj_property name="ObjectShortName">s_add_overflow</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/s_add_underflow" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_add_underflow</obj_property>
+      <obj_property name="ObjectShortName">s_add_underflow</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/SPI_interface/fr_err" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fr_err</obj_property>
+      <obj_property name="ObjectShortName">fr_err</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/SPI_interface/fr_start" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fr_start</obj_property>
+      <obj_property name="ObjectShortName">fr_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/SPI_interface/fr_end" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">fr_end</obj_property>
+      <obj_property name="ObjectShortName">fr_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/pkt_control/r_counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_counter[17:0]</obj_property>
+      <obj_property name="ObjectShortName">r_counter[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/SPI_interface/serializer/shift_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">shift_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">shift_reg[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/r_add" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_add[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_add[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/r_mul" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r_mul[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_mul[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/aluu/we_result" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we_result</obj_property>
+      <obj_property name="ObjectShortName">we_result</obj_property>
+   </wvobject>
+</wave_config>
