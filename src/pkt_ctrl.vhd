@@ -60,6 +60,7 @@ architecture Behavioral of pkt_ctrl is
 
     signal r_counter : STD_LOGIC_VECTOR (COUNTER_WIDTH downto 0);
     signal s_counter_next : STD_LOGIC_VECTOR (COUNTER_WIDTH downto 0);
+    signal s_timeout    : STD_LOGIC;
 
 begin
 
@@ -79,7 +80,9 @@ begin
 
         if(r_state = waiting_for_second) then
             s_counter_next <= r_counter + 1;
-        else
+        elsif(r_state = waiting_for_first) then
+		      s_counter_next <= r_counter;
+		  else
             s_counter_next <= (others => '0');
         end if;
 
@@ -88,6 +91,12 @@ begin
     process(r_state, fr_start, fr_end, fr_err, r_counter) is
     begin
 
+        if(r_counter >= std_logic_vector(to_unsigned(TIME_OUT_CYCLES, r_counter'length))) then
+	         s_timeout <= '1';
+		  else
+	         s_timeout <= '0';
+        end if;
+
         we_data_fr1 <= '0';
         we_data_fr2 <= '0';
         we_result <= '0';
@@ -95,7 +104,7 @@ begin
         case r_state is
             when waiting_for_first =>
 
-                we_result <= '1';
+                we_result <= not s_timeout;
                 if(fr_start = '1') then
                     s_state_next <= receiving_first;
                 else
@@ -115,7 +124,7 @@ begin
 
             when waiting_for_second =>
 
-                if(r_counter >= std_logic_vector(to_unsigned(TIME_OUT_CYCLES, r_counter'length)) and (fr_start = '1')) then
+                if(s_timeout = '1') then
                    s_state_next <= waiting_for_first;
                 elsif(fr_start = '1') then
                     s_state_next <= receiving_second;
@@ -125,9 +134,7 @@ begin
 
             when receiving_second =>
 
-                if(r_counter = std_logic_vector(to_unsigned(TIME_OUT_CYCLES, r_counter'length))) then
-                   s_state_next <= waiting_for_first;
-                elsif(fr_err = '1') then
+                if(fr_err = '1') then
                     s_state_next <= waiting_for_second;
                 elsif(fr_end = '1') then
                     s_state_next <= waiting_for_first;

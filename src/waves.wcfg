@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/kevin/Downloads/Rapeme/TopBitch_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/kevin/Downloads/NDI/src/TopBitch_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="env" />
             <top_module name="numeric_std" />
@@ -15,7 +15,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/topbitch/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -53,6 +53,11 @@
    <wvobject fp_name="/topbitch/test_vector_number" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">test_vector_number[63:0]</obj_property>
       <obj_property name="ObjectShortName">test_vector_number[63:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/test_vector_wait_time" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">test_vector_wait_time[31:0]</obj_property>
+      <obj_property name="ObjectShortName">test_vector_wait_time[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/topbitch/uut/aluu/s_add" type="array" db_ref_id="1">
@@ -122,5 +127,9 @@
    <wvobject fp_name="/topbitch/uut/aluu/we_result" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">we_result</obj_property>
       <obj_property name="ObjectShortName">we_result</obj_property>
+   </wvobject>
+   <wvobject fp_name="/topbitch/uut/pkt_control/s_timeout" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_timeout</obj_property>
+      <obj_property name="ObjectShortName">s_timeout</obj_property>
    </wvobject>
 </wave_config>

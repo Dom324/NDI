@@ -67,7 +67,6 @@ architecture Behavioral of alu is
     signal s_add_underflow : STD_LOGIC;
 
     signal s_mul_result_should_be_positive : STD_LOGIC;
-    signal s_mul_result_should_too_big : STD_LOGIC;
     signal s_mul_overflow : STD_LOGIC;
 begin
 
