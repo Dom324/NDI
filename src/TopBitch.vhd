@@ -150,7 +150,7 @@ BEGIN
 
             CS_b <= '1';            -- PACKET START
             wait for SCLK_period;
-            wait for to_integer(test_vector_wait_time) *100 us;
+            wait for to_integer(test_vector_wait_time-1) *100 us;
 
             for i in 0 to to_integer(unsigned(test_vector_num_bits)) - 1 loop
                 CS_b <= '0';
