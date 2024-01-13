@@ -127,6 +127,8 @@ BEGIN
         CS_b <= '0';
         wait for SCLK_period;
 
+        wait for SCLK_period / 2;
+
         while true loop
             --report "Sending frame number " & integer'image(v_data_row_counter) & "...";
 
@@ -149,8 +151,8 @@ BEGIN
             test_vector_valid    <= std_logic_vector(to_unsigned(v_data_read(5), test_vector_valid'length));
 
             CS_b <= '1';            -- PACKET START
-            wait for SCLK_period;
-            wait for to_integer(test_vector_wait_time-1) *100 us;
+            wait for SCLK_period / 2;
+            wait for to_integer(test_vector_wait_time) *100 us - SCLK_PERIOD;
 
             for i in 0 to to_integer(unsigned(test_vector_num_bits)) - 1 loop
                 CS_b <= '0';
@@ -164,7 +166,7 @@ BEGIN
 
             incoming_packet <= incoming_packet_temp;
             CS_b <= '1';            -- PACKET END
-            wait for SCLK_period;
+            wait for SCLK_period / 2;
 
             if(test_vector_num_bits = 16) then
                 report "   Writing number " & integer'image(to_integer(unsigned(test_vector_number))) & " into DUT...";
