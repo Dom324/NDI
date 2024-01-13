@@ -61,6 +61,8 @@ architecture Behavioral of pkt_ctrl is
     signal r_counter : STD_LOGIC_VECTOR (COUNTER_WIDTH downto 0);
     signal s_counter_next : STD_LOGIC_VECTOR (COUNTER_WIDTH downto 0);
     signal s_timeout    : STD_LOGIC;
+    signal r_fr_err_prev :STD_LOGIC;
+    signal s_fr_err_prev :STD_LOGIC;
 
 begin
 
@@ -69,9 +71,11 @@ begin
         if rst = '1' then
             r_state <= waiting_for_first;
             r_counter <= (others => '0');
+            r_fr_err_prev <= '0';
         elsif rising_edge(clk) then
             r_state <= s_state_next;
             r_counter <= s_counter_next;
+            r_fr_err_prev <= s_fr_err_prev;
         end if;
     end process;
 
@@ -81,30 +85,39 @@ begin
         if(r_state = waiting_for_second) then
             s_counter_next <= r_counter + 1;
         elsif(r_state = waiting_for_first) then
-		      s_counter_next <= r_counter;
-		  else
+            s_counter_next <= r_counter;
+          else
             s_counter_next <= (others => '0');
         end if;
 
     end process;
 
-    process(r_state, fr_start, fr_end, fr_err, r_counter) is
+    process(r_state, fr_start, fr_end, fr_err, r_counter, r_fr_err_prev) is
     begin
 
         if(r_counter >= std_logic_vector(to_unsigned(TIME_OUT_CYCLES, r_counter'length))) then
-	         s_timeout <= '1';
-		  else
-	         s_timeout <= '0';
+            s_timeout <= '1';
+          else
+            s_timeout <= '0';
         end if;
 
         we_data_fr1 <= '0';
         we_data_fr2 <= '0';
         we_result <= '0';
 
+        if fr_start = '1' then
+            s_fr_err_prev <= '0';
+        elsif fr_err = '1' then
+            s_fr_err_prev <= '1';
+        else
+            s_fr_err_prev <= r_fr_err_prev;
+        end if;
+
         case r_state is
             when waiting_for_first =>
 
-                we_result <= not s_timeout;
+                we_result <= not s_timeout and not r_fr_err_prev;
+
                 if(fr_start = '1') then
                     s_state_next <= receiving_first;
                 else
